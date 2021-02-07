@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "tipo": "Feminino",
+        "src": "assets/images/01-01.jpg"
+    },
+    {
+        "id": 2,
+        "tipo": "Feminino",
+        "src": "assets/images/01-02.jpg"
+    },
+    {
+        "id": 3,
+        "tipo": "Feminino",
+        "src": "assets/images/01-03.jpg"
+    },
+    {
+        "id": 4,
+        "tipo": "Feminino",
+        "src": "assets/images/01-04.jpg"
+    },
+    {
+        "id": 5,
+        "tipo": "Família",
+        "src": "assets/images/02-01.jpg"
+    },
+    {
+        "id": 6,
+        "tipo": "Família",
+        "src": "assets/images/02-02.jpg"
+    },
+    {
+        "id": 7,
+        "tipo": "Família",
+        "src": "assets/images/02-03.jpg"
+    },
+    {
+        "id": 8,
+        "tipo": "Família",
+        "src": "assets/images/02-04.jpg"
+    },
+    {
+        "id": 9,
+        "tipo": "Feminino",
+        "src": "assets/images/03-01.jpg"
+    },
+    {
+        "id": 10,
+        "tipo": "Feminino",
+        "src": "assets/images/03-02.jpg"
+    },
+    {
+        "id": 11,
+        "tipo": "Feminino",
+        "src": "assets/images/03-03.jpg"
+    },
+    {
+        "id": 12,
+        "tipo": "Feminino",
+        "src": "assets/images/03-04.jpg"
+    },
+    {
+        "id": 13,
+        "tipo": "Pessoal",
+        "src": "assets/images/04-01.jpg"
+    },
+    {
+        "id": 14,
+        "tipo": "Pessoal",
+        "src": "assets/images/04-02.jpg"
+    },
+    {
+        "id": 15,
+        "tipo": "Pessoal",
+        "src": "assets/images/04-03.jpg"
+    },
+    {
+        "id": 16,
+        "tipo": "Pessoal",
+        "src": "assets/images/04-04.jpg"
+    }
+]

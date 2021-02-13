@@ -2,6 +2,7 @@
   <div>
     <div class="header">
       <img src="../assets/header.jpg" alt="">
+      <div class="gradient-border"></div>
       <div class="list-menu">
         <ul>
           <li>Externos</li>
@@ -10,6 +11,7 @@
           <li>Contato</li>
         </ul>
       </div>
+      <div class="gradient-border"></div>
     </div>
     <Gallery />
   </div>  
@@ -52,12 +54,17 @@ Nevada
   width:100%;
   
 }
+.header .gradient-border{
+  background: linear-gradient(90deg, rgba(255,255,255,1) 13%, rgba(209,187,176,1) 48%, rgba(255,255,255,1) 87%);
+  height: 3px;
+  width: 100%;
+}
 .header .list-menu ul{
   display: flex;
   list-style: none;
   margin: 0 auto;
-  border-top: 1px solid #D1BBB0;
-  border-bottom: 1px solid #D1BBB0;
+  /* border-top: 1px solid #D1BBB0;
+  border-bottom: 1px solid #D1BBB0; */
   width: 94%;
 }
 .header .list-menu li{
@@ -74,5 +81,11 @@ Nevada
 .header .list-menu li:hover{
   background-color: #D1BBB0;
   color: #f7f1ed;
+}
+@media only screen and (max-width: 600px) {
+  .header .list-menu ul{
+    display: block;
+    padding: 0;
+  }
 }
 </style>

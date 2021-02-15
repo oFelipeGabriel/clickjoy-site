@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 /* Clam Shell
 #D1BBB0
 
@@ -79,7 +79,7 @@ Nevada
   font-size: 2rem;
 }
 .header .list-menu li:hover{
-  background-color: #D1BBB0;
+  background-color: $clam;
   color: #f7f1ed;
 }
 @media only screen and (max-width: 600px) {

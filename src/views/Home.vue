@@ -1,46 +1,56 @@
 <template>
   <div>
     <div class="header">
-      <img src="../assets/header.jpg" alt="">
-      <div class="gradient-border"></div>
-      <div class="list-menu">
-        <ul>
-          <li>Externos</li>
-          <li>Internos</li>
-          <li>Sobre mim</li>
-          <li>Contato</li>
-        </ul>
+      <div class="bars-icon">
+        <font-awesome-icon icon="bars" @click="toggleMenu(true)"/>   
       </div>
-      <div class="gradient-border"></div>
+      <img src="../assets/header.jpg" alt="">
+      <Menu :display="showMenu" @toggleMenu="toggleMenu"/>
     </div>
+    
     <Gallery />
   </div>  
 </template>
 <script>
 import Gallery from '@/components/Gallery.vue';
+import Menu from '@/components/Menu.vue';
 export default {
   name: 'home',
   components: {
     Gallery,
+    Menu
   },
+  data() {
+    return {
+      windowHeight: window.innerWidth,
+      showMenu: window.innerWidth>=595
+    }
+  },
+  methods: {
+    toggleMenu(display) {
+      this.showMenu = display;
+    },
+    onResize() {
+      this.windowHeight = window.innerWidth
+      this.showMenu = window.innerWidth>=595
+      this.toggleMenu(this.showMenu)
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    })
+  }
 };
 </script>
 
 <style lang="scss">
-/* Clam Shell
-#D1BBB0
-
-Rock
-#4C3730
-
-Roman Coffee
-#825E4A
-
-Nevada
-#576163 */
-  @import url('https://fonts.googleapis.com/css2?family=Tangerine');
+.bars-icon{
+  display: none;
+}
 .header{
   width: 100%;
+  background-color: #f7f1ed;
 }
 .header img{
   width: 94%;
@@ -48,44 +58,20 @@ Nevada
   margin: 0 3%;
   height: 22vw;
 }
-.header .list-menu{
-  display: inline-flex;
-  list-style: none;
-  width:100%;
-  
-}
-.header .gradient-border{
-  background: linear-gradient(90deg, rgba(255,255,255,1) 13%, rgba(209,187,176,1) 48%, rgba(255,255,255,1) 87%);
-  height: 3px;
-  width: 100%;
-}
-.header .list-menu ul{
-  display: flex;
-  list-style: none;
-  margin: 0 auto;
-  /* border-top: 1px solid #D1BBB0;
-  border-bottom: 1px solid #D1BBB0; */
-  width: 94%;
-}
-.header .list-menu li{
-  color: #825E4A;
-  padding: 0 1rem;
-  line-height: 3rem;
-  cursor: pointer;
-  flex: 1;
-  text-align: center;
-  font-weight: bold;
-  font-family: 'Tangerine';
-  font-size: 2rem;
-}
-.header .list-menu li:hover{
-  background-color: $clam;
-  color: #f7f1ed;
-}
 @media only screen and (max-width: 600px) {
-  .header .list-menu ul{
+  .bars-icon{
     display: block;
-    padding: 0;
+    font-size: 1.6rem;
+    position: fixed;
+    opacity: .85;
+    background-color: $clam;
+    color: #f7f1ed;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #f7f1ed;
+  }
+  .header img{
+    margin-top: 2rem;
   }
 }
 </style>

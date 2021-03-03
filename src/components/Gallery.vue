@@ -24,9 +24,9 @@
         return require(`../${filename}`);
       },
     },
-    mounted(){
-      var w = window.innerWidth;
-      console.log("w", w)
+    mounted() {
+    const query = Object.assign({}, this.$route.query);
+    console.log("query", query)
     },
     computed:{
       isMobile(){

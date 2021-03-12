@@ -8,7 +8,7 @@
       <Menu :display="showMenu" @toggleMenu="toggleMenu"/>
     </div>
     
-    <Gallery />
+    <Gallery :tag="tag"/>
   </div>  
 </template>
 <script>
@@ -23,7 +23,8 @@ export default {
   data() {
     return {
       windowHeight: window.innerWidth,
-      showMenu: window.innerWidth>=595
+      showMenu: window.innerWidth>=595,
+      tag: this.$route.params.id
     }
   },
   methods: {
@@ -36,10 +37,16 @@ export default {
       this.toggleMenu(this.showMenu)
     }
   },
+  watch: {
+    '$route.params.id': function (id) {
+      this.tag = id;
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       window.addEventListener('resize', this.onResize);
     })
+    
   }
 };
 </script>

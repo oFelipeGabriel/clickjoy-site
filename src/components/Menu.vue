@@ -6,8 +6,8 @@
         <font-awesome-icon icon="times-circle" />
       </div>   
       <ul>
-        <li @click="$router.replace({ path: '', query: { tag: 'Externo' }})">Externos</li>
-        <li>Internos</li>
+        <li @click="$router.replace({ path: '/home/externo'})">Externos</li>
+        <li @click="$router.replace({ path: '/home/interno'})">Internos</li>
         <li>Sobre mim</li>
         <li>Contato</li>
       </ul>

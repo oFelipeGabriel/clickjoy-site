@@ -30,9 +30,10 @@ export default {
             return require(`../${filename}`);
         },
         closeLightbox() {
-        this.$router.push('/');
+        this.$router.push('/home');
         }
-    },
+    }
+    
 };
 </script>
 <style>

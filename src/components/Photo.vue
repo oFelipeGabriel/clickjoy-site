@@ -1,5 +1,5 @@
 <template>
-    <div class="lightbox" @click.self="closeLightbox">
+    <div v-if="photo" class="lightbox" @click.self="closeLightbox">
         <img :src="photoUrl(photo.src)">
         <div class="lightbox-info">
         <div class="lightbox-info-inner">
@@ -13,24 +13,26 @@
 import photos from '@/photos.json';
 export default {
     name: 'Photo',
+    props: ['photo', 'tag'],
     data() {
         return {
             photos,
         };
     },
-    computed: {
-        photo() {
-            return this.photos.find((photo) => {
-            return photo.id === Number(this.$route.params.id);
-            });
-        },
-    },
+    // computed: {
+    //     photo() {
+    //         return this.photos.find((photo) => {
+    //         return photo.id === Number(this.$route.params.id);
+    //         });
+    //     },
+    // },
     methods: {
         photoUrl(filename) {
             return require(`../${filename}`);
         },
         closeLightbox() {
-        this.$router.push('/home');
+            this.$emit('onClose')
+            // this.$router.push(`/home/${this.tag}`);
         }
     }
     

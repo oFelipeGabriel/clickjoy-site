@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Photo from '../views/Photo.vue';
+// import Photo from '../views/Photo.vue';
 import Inicio from '../views/Inicio.vue';
 
 Vue.use(VueRouter)
@@ -13,16 +13,11 @@ const routes = [
     component: Inicio
   },
   {
-    path: '/photo/:id',
-    name: 'photo',
-    component: Photo,
-  },
-  {
     path: '/home',
     component: Home,
     children: [
       {path: '/',component: Home},
-      {path: ':id',component: Home},
+      {path: ':tag',component: Home}
     ]
     
   }

@@ -24,7 +24,7 @@ export default {
     return {
       windowHeight: window.innerWidth,
       showMenu: window.innerWidth>=595,
-      tag: this.$route.params.id
+      tag: this.$route.params.tag
     }
   },
   methods: {
@@ -38,7 +38,7 @@ export default {
     }
   },
   watch: {
-    '$route.params.id': function (id) {
+    '$route.params.tag': function (id) {
       this.tag = id;
     }
   },

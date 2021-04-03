@@ -3,21 +3,26 @@
       <div class="gallery-panel"
            v-for="photo in photos"
            :key="photo.id">
-        <router-link :to="`/photo/${photo.id}`">
+        <div @click="selectPhoto(photo)">
             <img :src="thumbUrl(photo.src)">
-        </router-link>        
+        </div>        
       </div>
+      <Photo v-if="selectedPhoto!==null" :photo="selectedPhoto" :tag="tag"  @onClose="selectedPhoto=null" />
     </div>
   </template>
 
 <script>
   import phs from '@/photos.json';
+  import Photo from './Photo.vue'
   export default {
     name: 'Gallery',
-    props: ['tag'],
+    components: {
+      Photo
+    },
     data() {
       return {
         photos: [],
+        selectedPhoto: null
       };
     },
     methods: {
@@ -30,15 +35,21 @@
           filter = phs.filter(p => p.tag.toLowerCase()===tag.toLowerCase() )
         }
         this.photos = filter
+      },
+      selectPhoto(photo) {
+        this.selectedPhoto = photo
       }
     },
     computed:{
       isMobile(){
         return window.innerWidth<500
+      },
+      tag() {
+        return this.$route.params.tag
       }
     },
     mounted() {
-      const tag = this.$route.params.id;
+      const tag = this.$route.params.tag;
       this.filtrar(tag)
     },
     watch: {
